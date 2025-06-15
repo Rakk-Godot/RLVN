@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvkrnm7hym1yk"]
+
+[ext_resource type="Script" uid="uid://khwdw4s2em15" path="res://game/main_menu.gd" id="1_2gctw"]
+[ext_resource type="PackedScene" uid="uid://bbohcqjiydicl" path="res://game/external_links.tscn" id="2_2ed8k"]
+[ext_resource type="PackedScene" uid="uid://b3cbhak0nta3o" path="res://game/action_box.tscn" id="2_20tr2"]
+[ext_resource type="Texture2D" uid="uid://dwc5at0671nl1" path="res://assets/test_scenes/testbg.jpg" id="2_t606k"]
+[ext_resource type="PackedScene" uid="uid://6p50e5bejksk" path="res://game/settings.tscn" id="3_wo36y"]
+
+[node name="main_menu" type="Node2D"]
+script = ExtResource("1_2gctw")
+
+[node name="bg" type="TextureRect" parent="."]
+offset_right = 1288.0
+offset_bottom = 736.0
+texture = ExtResource("2_t606k")
+expand_mode = 1
+
+[node name="Title" type="Label" parent="."]
+offset_left = 19.0
+offset_top = 430.0
+offset_right = 1086.0
+offset_bottom = 707.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -40
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 25
+theme_override_font_sizes/font_size = 100
+text = "Girl of the
+Dark Forest"
+
+[node name="VersionLabel" type="RichTextLabel" parent="."]
+offset_left = 468.0
+offset_top = 676.0
+offset_right = 1268.0
+offset_bottom = 716.0
+bbcode_enabled = true
+text = "version name here"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Menu" type="VBoxContainer" parent="."]
+offset_left = 958.0
+offset_top = 452.0
+offset_right = 1258.0
+offset_bottom = 664.0
+
+[node name="NewGame" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "New Game"
+
+[node name="LoadGame" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Continue"
+
+[node name="Settings" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Settings"
+
+[node name="QuitGame" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Quit"
+
+[node name="external_links" parent="." instance=ExtResource("2_2ed8k")]
+offset_left = 10.0
+offset_top = 670.0
+offset_right = 10.0
+offset_bottom = 670.0
+
+[node name="settings" parent="." instance=ExtResource("3_wo36y")]
+
+[node name="action_box" parent="." instance=ExtResource("2_20tr2")]

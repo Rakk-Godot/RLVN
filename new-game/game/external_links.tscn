@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbohcqjiydicl"]
+
+[ext_resource type="Script" uid="uid://d3iba5djxdpnj" path="res://game/external_links.gd" id="1_6rpkh"]
+
+[node name="external_links" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_6rpkh")
+
+[node name="Links" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="X" type="Button" parent="Links"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "  X  "
+
+[node name="Discord" type="Button" parent="Links"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Discord"
+
+[node name="Itch" type="Button" parent="Links"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Itch.io"
+
+[node name="Patreon" type="Button" parent="Links"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Patreon"

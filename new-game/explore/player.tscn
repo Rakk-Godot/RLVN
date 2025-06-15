@@ -1,0 +1,106 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi1v4jwvd6mld"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gl6nq"]
+bg_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="player" type="Node2D"]
+
+[node name="body" type="Node2D" parent="."]
+
+[node name="Body" type="Panel" parent="body"]
+offset_left = -49.0
+offset_top = -127.0
+offset_right = 51.0
+offset_bottom = 113.0
+pivot_offset = Vector2(59, 127)
+theme_override_styles/panel = SubResource("StyleBoxFlat_gl6nq")
+
+[node name="LeftLeg" type="Panel" parent="body/Body"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 194.0
+offset_right = 94.0
+offset_bottom = 330.0
+pivot_offset = Vector2(33, 21)
+theme_override_styles/panel = SubResource("StyleBoxFlat_gl6nq")
+
+[node name="Leg" type="Panel" parent="body/Body/LeftLeg"]
+layout_mode = 0
+offset_top = 103.0
+offset_right = 65.0
+offset_bottom = 239.0
+pivot_offset = Vector2(33, 21)
+theme_override_styles/panel = SubResource("StyleBoxFlat_gl6nq")
+
+[node name="LeftArm" type="Panel" parent="body/Body"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 43.0
+offset_top = 10.0
+offset_right = 92.0
+offset_bottom = 146.0
+pivot_offset = Vector2(24, 16)
+theme_override_styles/panel = SubResource("StyleBoxFlat_gl6nq")
+
+[node name="Hand" type="Panel" parent="body/Body/LeftArm"]
+layout_mode = 0
+offset_top = 106.0
+offset_right = 49.0
+offset_bottom = 242.0
+rotation = -0.714704
+pivot_offset = Vector2(24, 16)
+theme_override_styles/panel = SubResource("StyleBoxFlat_gl6nq")
+
+[node name="Head" type="Panel" parent="body/Body"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -98.0
+offset_right = 92.0
+offset_bottom = -7.0
+pivot_offset = Vector2(59, 127)
+theme_override_styles/panel = SubResource("StyleBoxFlat_gl6nq")
+
+[node name="RightLeg" type="Panel" parent="body/Body"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 194.0
+offset_right = 77.0
+offset_bottom = 330.0
+pivot_offset = Vector2(33, 21)
+theme_override_styles/panel = SubResource("StyleBoxFlat_gl6nq")
+
+[node name="Leg" type="Panel" parent="body/Body/RightLeg"]
+layout_mode = 0
+offset_top = 103.0
+offset_right = 65.0
+offset_bottom = 239.0
+pivot_offset = Vector2(33, 21)
+theme_override_styles/panel = SubResource("StyleBoxFlat_gl6nq")
+
+[node name="RightArm" type="Panel" parent="body/Body"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 59.0
+offset_bottom = 146.0
+pivot_offset = Vector2(24, 16)
+theme_override_styles/panel = SubResource("StyleBoxFlat_gl6nq")
+
+[node name="Hand" type="Panel" parent="body/Body/RightArm"]
+layout_mode = 0
+offset_top = 106.0
+offset_right = 49.0
+offset_bottom = 242.0
+rotation = -0.714704
+pivot_offset = Vector2(24, 16)
+theme_override_styles/panel = SubResource("StyleBoxFlat_gl6nq")
+
+[node name="Anim" type="AnimationPlayer" parent="."]

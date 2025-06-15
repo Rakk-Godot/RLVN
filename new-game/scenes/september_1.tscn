@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwc5r2jyhwkus"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_abtou"]
+[ext_resource type="Texture2D" uid="uid://db6n4i26ogoak" path="res://assets/background/main_entrance.png" id="2_btm2j"]
+[ext_resource type="PackedScene" uid="uid://bpg50btptpfmf" path="res://spirtes/game_master.tscn" id="3_btm2j"]
+
+[node name="september_1" instance=ExtResource("1_abtou")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_btm2j")
+
+[node name="game_master" parent="sprite_parent" index="0" instance=ExtResource("3_btm2j")]
+position = Vector2(233, 530)

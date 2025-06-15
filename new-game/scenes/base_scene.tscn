@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bibhl7em3ho15"]
+
+[node name="base_scene" type="Node2D"]
+
+[node name="illustration" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="sprite_parent" type="Node2D" parent="."]

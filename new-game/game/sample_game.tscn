@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca2sg0yu0hkop"]
+
+[ext_resource type="Script" uid="uid://cidlgrkoux42a" path="res://game/sample_game.gd" id="1_cjijq"]
+
+[node name="sample_game" type="Node2D"]
+script = ExtResource("1_cjijq")
+
+[node name="Guide" type="Label" parent="."]
+offset_left = 938.0
+offset_top = 27.0
+offset_right = 1267.0
+offset_bottom = 67.0
+text = "Hold any button to move them"
+
+[node name="MainMenu" type="Button" parent="."]
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 235.0
+offset_bottom = 70.0
+text = "Return to main menu"
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Button1" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 150.0
+offset_right = 488.0
+offset_bottom = 266.0
+text = "Button 1"
+
+[node name="Button2" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 326.0
+offset_right = 488.0
+offset_bottom = 442.0
+text = "Button 2"
+
+[node name="Button3" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 500.0
+offset_right = 488.0
+offset_bottom = 616.0
+text = "Button 3"
+
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

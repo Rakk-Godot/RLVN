@@ -1,0 +1,220 @@
+extends Control
+
+signal finished
+
+@export var auto = false
+
+var char_speed = 0.05
+var codes = ["[center]", "\n", "[color=#fff125]", "[/color]", "[animation]"]
+
+@onready var content_node = $UI/Content
+@onready var reader = $dialogue_reader
+
+var current_tween = null
+
+var story : Dictionary
+
+var active_arc : String
+var active_key : String
+var prev_key : String
+
+var content_arr = []
+var content_idx = 0
+var choice_outcome = null
+var choice_response = false
+
+var is_choices_active = false
+var filters = {}
+var active = false
+var outcome_key = null
+var custom_choices = {}
+var disabled_keyboard = false
+
+func _ready() -> void:
+	for choice in $UI/Choices.get_children():
+		choice.connect("pressed", Callable(self, "_on_choice").bind(choice))
+	choices_visible(false)
+	$UI/BaseClick.connect("pressed", Callable(self, "_on_next_click"))
+	content_node.visible_characters = 0
+	hide()
+
+func initialize(_story):
+	story = _story
+	reader.init_pre(story)
+
+func init_start(arc, key, _filters={}):
+	reader.init_read(arc, key)
+	active_arc = arc
+	filters = _filters
+	init_next(key)
+	
+func init_talk(content, key, _filters={}, _choices={}):
+	reset_content()
+	outcome_key = key
+	custom_choices = _choices
+	filters = _filters
+	content_arr = content
+	play_content()
+	active = true
+	
+func init_next(_key, from_last=false):
+	var f = filters.duplicate()
+	reset_content()
+	filters = f.duplicate()
+	if active_key != null:
+		prev_key = active_key
+	reader.init_read(reader.init_class, _key)
+	active_key = _key
+	content_arr = reader.get_story_content()
+	if from_last == true:
+		content_idx = content_arr.size()-1
+	play_content()
+	active = true
+
+func reset_content():
+	outcome_key = null
+	custom_choices = {}
+	filters = {}
+	content_arr = []
+	content_idx = 0
+	
+func hide_dialogue():
+	reset_content()
+	choices_visible(false)
+	hide()
+
+func _on_choice(button):
+	if current_tween == null:
+		if custom_choices.is_empty():
+			choices_visible(false)
+			choice_outcome = button.outcome
+			if button.response.size() > 0:
+				choice_response = true
+				content_arr = button.response
+				content_idx = 0
+				play_content()
+			else:
+				choice_next()
+		else:
+			active = false
+			emit_signal("finished", button.outcome)
+
+func choice_next():
+	if auto == true:
+		init_next(choice_outcome)
+	else:
+		active = false
+		emit_signal("finished", choice_outcome)
+
+func choices_visible(_visible):
+	for choice in $UI/Choices.get_children():
+		choice.visible = _visible
+	is_choices_active = _visible
+
+func show_choices():
+	var choices = reader.get_choices()
+	for each in choices:
+		var button = $UI/Choices.get_node(each["title"])
+		button.text = each["text"]
+		button.response = each["resp"]
+		button.outcome = each["outcome"]
+		button.show()
+	is_choices_active = true
+
+func show_custom_choices(_arr):
+	for each in _arr.keys():
+		var button = $UI/Choices.get_node(each)
+		button.text = _arr[each]["text"]
+		button.outcome = _arr[each]["outcome"]
+		button.show()
+	is_choices_active = true
+
+func content_end():
+	if outcome_key != null:
+		if custom_choices.is_empty() == false:
+			show_custom_choices(custom_choices)
+		else:
+			active = false
+			emit_signal("finished", outcome_key)
+	elif choice_response == true:
+		choice_next()
+		choice_response = false
+		choice_outcome = null
+	else:
+		var outcome = reader.get_outcome()
+		if outcome == "$choices":
+			show_choices()
+		elif outcome == null and outcome_key == null:
+			active = false
+			emit_signal("finished", outcome)
+		else:
+			if auto == true:
+				init_next(outcome)
+			else:
+				if outcome_key == null:
+					active = false
+					emit_signal("finished", outcome)
+
+func _on_next_click():
+	next_slide()
+
+func _input(_event: InputEvent) -> void:
+	if disabled_keyboard == false:
+		if Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_accept"):
+			next_slide()
+		if Input.is_action_just_pressed("ui_left"):
+			prev_slide()
+
+func prev_slide():
+	choices_visible(false)
+	if current_tween != null:
+		current_tween.kill()
+		content_node.visible_ratio = 1.0
+		tween_done()
+	else:
+		if content_idx > 0:
+			content_idx -= 1
+			play_content()
+		else:
+			if prev_key != null and prev_key != "":
+				init_next(prev_key, true)
+
+func next_slide():
+	if current_tween != null:
+		current_tween.kill()
+		content_node.visible_ratio = 1.0
+		tween_done()
+	else:
+		if content_idx < content_arr.size()-1:
+			content_idx += 1
+			play_content()
+		else:
+			content_end()
+
+func play_content():
+	show()
+	var content = content_arr[content_idx]
+	content_node.visible_characters = 0
+	content_node.text = content
+	for each in filters.keys():
+		content_node.text = content_node.text.replace(each, filters[each])
+	content_node.show()
+	tween_content(content)
+
+func tween_content(_content):
+	if current_tween != null:
+		current_tween.kill()
+	var length = get_length(_content)
+	var tween = get_tree().create_tween()
+	tween.tween_property(content_node, "visible_characters", length, length * char_speed)
+	tween.tween_callback(self.tween_done)
+	current_tween = tween
+
+func tween_done():
+	current_tween = null
+
+func get_length(text):
+	var t = text
+	for each in codes:
+		t = t.replace(each, "")
+	return t.length()

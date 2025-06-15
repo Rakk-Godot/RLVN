@@ -1,0 +1,222 @@
+[gd_scene load_steps=7 format=3 uid="uid://6p50e5bejksk"]
+
+[ext_resource type="Script" uid="uid://byt7tbiia78j3" path="res://game/settings.gd" id="1_18e78"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owjns"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_18e78"]
+
+[sub_resource type="FontVariation" id="FontVariation_18e78"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5qx5"]
+bg_color = Color(0.308326, 0, 0.0819613, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18e78"]
+bg_color = Color(0.170181, 0, 0.030525, 1)
+
+[node name="settings" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_18e78")
+metadata/_edit_vertical_guides_ = [640.0]
+
+[node name="BG" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 0.462745)
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+offset_left = 414.0
+offset_top = 200.0
+offset_right = 866.0
+offset_bottom = 536.0
+pivot_offset = Vector2(246, 168)
+theme_override_styles/panel = SubResource("StyleBoxFlat_owjns")
+tab_alignment = 1
+current_tab = 0
+
+[node name="Audio" type="VBoxContainer" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Master" type="HBoxContainer" parent="TabContainer/Audio"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 2
+
+[node name="Label2" type="Label" parent="TabContainer/Audio/Master"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Master Volume"
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Audio/Master"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="BGM" type="HBoxContainer" parent="TabContainer/Audio"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 2
+
+[node name="Label2" type="Label" parent="TabContainer/Audio/BGM"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Background"
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Audio/BGM"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="SFX" type="HBoxContainer" parent="TabContainer/Audio"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 2
+
+[node name="Label2" type="Label" parent="TabContainer/Audio/SFX"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "SFX"
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Audio/SFX"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Mute" type="HBoxContainer" parent="TabContainer/Audio"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Label2" type="Button" parent="TabContainer/Audio/Mute"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Mute Everything"
+
+[node name="Video" type="VBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 30
+metadata/_tab_index = 1
+
+[node name="WindowMode" type="HBoxContainer" parent="TabContainer/Video"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="Label" type="Label" parent="TabContainer/Video/WindowMode"]
+custom_minimum_size = Vector2(107.5, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_18e78")
+theme_override_font_sizes/font_size = 25
+text = "Window Mode"
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Video/WindowMode"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Resolution" type="HBoxContainer" parent="TabContainer/Video"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 2
+
+[node name="Label" type="Label" parent="TabContainer/Video/Resolution"]
+custom_minimum_size = Vector2(107.5, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_18e78")
+theme_override_font_sizes/font_size = 25
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Video/Resolution"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Game" type="VBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 30
+metadata/_tab_index = 2
+
+[node name="TextSpeed" type="HBoxContainer" parent="TabContainer/Game"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Label2" type="Label" parent="TabContainer/Game/TextSpeed"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Text Speed"
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Game/TextSpeed"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+min_value = 1.0
+max_value = 5.0
+value = 1.0
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 540.0
+offset_top = 62.0
+offset_right = 740.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 0
+offset_left = 855.0
+offset_top = 175.0
+offset_right = 918.0
+offset_bottom = 232.0
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_m5qx5")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_m5qx5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_m5qx5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m5qx5")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_m5qx5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m5qx5")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_18e78")
+theme_override_styles/normal = SubResource("StyleBoxFlat_18e78")
+text = "X"
+
+[node name="Confirm" type="Button" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 522.0
+offset_right = 499.0
+offset_bottom = 580.0
+theme_override_font_sizes/font_size = 24
+text = "Apply"
+
+[node name="Reset" type="Button" parent="."]
+layout_mode = 0
+offset_left = 766.0
+offset_top = 522.0
+offset_right = 945.0
+offset_bottom = 580.0
+theme_override_font_sizes/font_size = 24
+text = "Reset"
+
+[connection signal="pressed" from="TabContainer/Audio/Mute/Label2" to="." method="_on_mute_pressed"]
+[connection signal="pressed" from="Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]

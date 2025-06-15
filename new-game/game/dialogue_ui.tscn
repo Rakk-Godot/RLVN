@@ -1,0 +1,213 @@
+[gd_scene load_steps=18 format=3 uid="uid://4ho7mnmbl115"]
+
+[ext_resource type="Script" uid="uid://bc4cfnhfawcyu" path="res://game/dialogue_ui.gd" id="1_6bjl5"]
+[ext_resource type="Script" uid="uid://dxhbxs07phtl0" path="res://game/dialogue_reader.gd" id="2_exbti"]
+[ext_resource type="Script" uid="uid://da4163s4kwuqf" path="res://game/dialogue_choice.gd" id="3_s3df7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itxc8"]
+content_margin_left = 50.0
+content_margin_right = 50.0
+bg_color = Color(0.0156863, 0.0156863, 0.0156863, 0.756863)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_itxc8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6bjl5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_exbti"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s3df7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i7cw0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rddtp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6137"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b5xiq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wg4ne"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f3t0g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dsov"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3df7"]
+bg_color = Color(0.153145, 0.139927, 0.146964, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7cw0"]
+bg_color = Color(0.0627451, 0.0705882, 0.0705882, 0.894118)
+
+[node name="dialogue_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6bjl5")
+
+[node name="dialogue_reader" type="Node" parent="."]
+script = ExtResource("2_exbti")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" type="RichTextLabel" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -600.5
+offset_top = 148.0
+offset_right = 600.5
+offset_bottom = 334.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/bold_italics_font_size = 27
+theme_override_font_sizes/italics_font_size = 27
+theme_override_font_sizes/mono_font_size = 27
+theme_override_font_sizes/normal_font_size = 27
+theme_override_font_sizes/bold_font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_itxc8")
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porta turpis dui, et molestie ante posuere et. Duis sed augue ut mauris gravida hendrerit nec a risus. Pellentesque ultrices fringilla nisl. Vivamus leo ipsum, iaculis quis ex vitae, posuere vulputate magna. Vivamus leo ipsum, iaculis quis ex vitae, posuere vulputate magna. Vivamus leo ipsum, iaculis quis ex vitae, posuere vulputate magna. Vivamus leo ipsum, iaculis quis ex vitae, posuere vulputate magna. Vivamus leo ipsum, iaculis quis ex vitae, posuere vulputate magna. Vivamus leo ipsum, iaculis quis ex vitae, posuere vulputate magna. Vivamus leo ipsum, iaculis quis ex vitae, posuere vulputate magna. Vivamus leo ipsum, iaculis quis ex vitae, posuere vulputate magna. Vivamus leo ipsum, iaculis quis ex vitae, posuere vulputate magna. Vivamus leo ipsum, iaculis quis ex vitae, posuere vulputate magna. Vivamus leo ipsum, iaculis quis ex vitae, posuere vulputate magna. "
+fit_content = true
+vertical_alignment = 1
+visible_characters = 223
+visible_ratio = 0.237
+
+[node name="Charname" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = -599.0
+offset_top = 104.0
+offset_right = -441.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 27
+text = "CHAR NAME"
+
+[node name="BaseClick" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -665.0
+offset_top = -3.0
+offset_right = 665.0
+offset_bottom = 334.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_itxc8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_6bjl5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_exbti")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_s3df7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i7cw0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_rddtp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_m6137")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_b5xiq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wg4ne")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_f3t0g")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5dsov")
+
+[node name="Choices" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -197.0
+offset_right = 117.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="choice1" type="Button" parent="UI/Choices"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_i7cw0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_i7cw0")
+text = "Choice 1"
+script = ExtResource("3_s3df7")
+
+[node name="choice2" type="Button" parent="UI/Choices"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_i7cw0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_i7cw0")
+text = "Choice 1"
+script = ExtResource("3_s3df7")
+
+[node name="choice3" type="Button" parent="UI/Choices"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_i7cw0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_i7cw0")
+text = "Choice 1"
+script = ExtResource("3_s3df7")
+
+[node name="choice4" type="Button" parent="UI/Choices"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_i7cw0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_i7cw0")
+text = "Choice 1"
+script = ExtResource("3_s3df7")
+
+[node name="choice5" type="Button" parent="UI/Choices"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_i7cw0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_i7cw0")
+text = "Choice 1"
+script = ExtResource("3_s3df7")

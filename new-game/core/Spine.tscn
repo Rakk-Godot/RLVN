@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3kqwmdpn675h"]
+
+[ext_resource type="Script" uid="uid://ccv1aa0n4ac80" path="res://core/spine.gd" id="1_8toe8"]
+
+[node name="Spine" type="Node"]
+script = ExtResource("1_8toe8")

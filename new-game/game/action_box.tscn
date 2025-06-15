@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3cbhak0nta3o"]
+
+[ext_resource type="Script" uid="uid://30g6irj32dg2" path="res://game/action_box.gd" id="1_3djkp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3djkp"]
+bg_color = Color(0.051971, 0.051971, 0.0519709, 1)
+
+[node name="action_box" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3djkp")
+
+[node name="ui" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="Panel" type="Panel" parent="ui"]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 248.0
+offset_right = 1029.0
+offset_bottom = 436.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3djkp")
+
+[node name="BG" type="ColorRect" parent="ui/Panel"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -259.0
+offset_top = -248.0
+offset_right = 1021.0
+offset_bottom = 472.0
+color = Color(0, 0, 0, 0.462745)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ui/Panel"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 15.0
+offset_right = 743.0
+offset_bottom = 141.0
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "do you want to do this?"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Confirm" type="Button" parent="ui/Panel"]
+layout_mode = 0
+offset_left = -27.0
+offset_top = 154.0
+offset_right = 152.0
+offset_bottom = 212.0
+theme_override_font_sizes/font_size = 24
+text = "yes"
+
+[node name="Decline" type="Button" parent="ui/Panel"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 154.0
+offset_right = 819.0
+offset_bottom = 212.0
+theme_override_font_sizes/font_size = 24
+text = "Decline"
+
+[node name="Decline2" type="Button" parent="ui/Panel"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 154.0
+offset_right = 467.0
+offset_bottom = 212.0
+theme_override_font_sizes/font_size = 24
+text = "Decline"

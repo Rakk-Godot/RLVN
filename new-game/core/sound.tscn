@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjsvi5g3kw3r3"]
+
+[ext_resource type="Script" uid="uid://cvf6yi8kuxjt3" path="res://core/sound.gd" id="1_3jhpd"]
+
+[node name="Sound" type="Node"]
+script = ExtResource("1_3jhpd")
+
+[node name="FadeoutTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="ElapsedTimer" type="Timer" parent="."]
+
+[node name="FadeinTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="timeout" from="FadeoutTimer" to="." method="_on_fadeout_timer_timeout"]
+[connection signal="timeout" from="ElapsedTimer" to="." method="_on_elapsed_timer_timeout"]
+[connection signal="timeout" from="FadeinTimer" to="." method="_on_fadein_timer_timeout"]

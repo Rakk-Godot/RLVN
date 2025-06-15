@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvkeoauwl8bxn"]
+
+[ext_resource type="Script" uid="uid://chsjmw3sb82up" path="res://game/sample_custom.gd" id="1_rnpf2"]
+[ext_resource type="PackedScene" uid="uid://4ho7mnmbl115" path="res://game/dialogue_ui.tscn" id="2_mtc1p"]
+
+[node name="sample_custom" type="Node2D"]
+script = ExtResource("1_rnpf2")
+
+[node name="dialogue_ui" parent="." instance=ExtResource("2_mtc1p")]
+offset_left = 628.0
+offset_top = 359.0
+offset_right = 628.0
+offset_bottom = 359.0
+
+[connection signal="finished" from="dialogue_ui" to="." method="_on_dialogue_ui_finished"]
