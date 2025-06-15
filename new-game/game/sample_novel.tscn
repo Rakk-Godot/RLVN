@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3spmc7nwwk5i"]
+[gd_scene load_steps=4 format=3 uid="uid://b3spmc7nwwk5i"]
 
 [ext_resource type="Script" uid="uid://ogtesyaks1ka" path="res://game/sample_novel.gd" id="1_sddic"]
 [ext_resource type="PackedScene" uid="uid://4ho7mnmbl115" path="res://game/dialogue_ui.tscn" id="2_ydbqr"]
+[ext_resource type="Script" uid="uid://djyv8woumdcn8" path="res://game/hud.gd" id="3_qsim3"]
 
 [node name="sample_novel" type="Node2D"]
 script = ExtResource("1_sddic")
@@ -15,6 +16,7 @@ offset_right = 629.0
 offset_bottom = 361.0
 
 [node name="MainMenu" type="Button" parent="."]
+visible = false
 offset_left = 16.0
 offset_top = 14.0
 offset_right = 199.0
@@ -22,6 +24,7 @@ offset_bottom = 59.0
 text = "Return to main menu"
 
 [node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("3_qsim3")
 
 [node name="progress_container" type="VBoxContainer" parent="HUD"]
 offset_left = 1074.0

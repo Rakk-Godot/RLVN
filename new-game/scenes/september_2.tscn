@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba7rmtt4eukbp"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_kmqga"]
+[ext_resource type="Texture2D" uid="uid://db6n4i26ogoak" path="res://assets/background/main_entrance.png" id="2_hw7di"]
+[ext_resource type="PackedScene" uid="uid://bpg50btptpfmf" path="res://spirtes/game_master.tscn" id="3_qvwnv"]
+
+[node name="september_2" instance=ExtResource("1_kmqga")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_hw7di")
+
+[node name="game_master" parent="sprite_parent" index="0" instance=ExtResource("3_qvwnv")]
+position = Vector2(233, 530)

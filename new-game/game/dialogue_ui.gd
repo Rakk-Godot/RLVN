@@ -1,6 +1,8 @@
 extends Control
 
 signal finished
+signal stats_changed
+
 
 @export var auto = false
 
@@ -194,8 +196,28 @@ func next_slide():
 func play_content():
 	show()
 	var content = content_arr[content_idx]
+	if content.find("$$") >= 0:
+		var __name = content.split("$$")[0]
+		content = content.split("$$")[1]
+		$UI/Charname.text = __name
+	else:
+		$UI/Charname.text = ""
+		$UI/Charname.hide()
+	
+	
+	if content.find("||") >= 0:
+		var all_content = content
+		var split_content := Array(all_content.split("||"))
+		var new_content = split_content[0]
+		content = new_content
+		split_content.erase(new_content)
+		for each in split_content:
+			emit_signal("stats_changed",each)
+	
 	content_node.visible_characters = 0
 	content_node.text = content
+
+
 	for each in filters.keys():
 		content_node.text = content_node.text.replace(each, filters[each])
 	content_node.show()
