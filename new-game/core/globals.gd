@@ -18,7 +18,6 @@ const RESOLUTION_OPTIONS : Dictionary[String, Vector2i] = {
 
 var version_code : String
 var version_name : String
-var version_type : String
 var build_name : String
 
 var loader_scenes = []

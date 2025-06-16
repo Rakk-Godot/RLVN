@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://bibhl7em3ho15"]
+[gd_scene load_steps=2 format=3 uid="uid://bibhl7em3ho15"]
+
+[ext_resource type="Script" uid="uid://tt3iwi1w2qno" path="res://scenes/base_scene.gd" id="1_ou4n4"]
 
 [node name="base_scene" type="Node2D"]
+script = ExtResource("1_ou4n4")
 
 [node name="illustration" type="TextureRect" parent="."]
 offset_right = 40.0

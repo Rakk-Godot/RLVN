@@ -22,7 +22,7 @@ func loadgame():
 	
 func initialize_game():
 	$Menu/LoadGame.disabled = !Save.exists()
-	Globals.change_scene("res://game/sample_novel.tscn")
+	Globals.change_scene("res://game/Main.tscn")
 	
 func _on_new_game():
 	if Save.exists() == true:

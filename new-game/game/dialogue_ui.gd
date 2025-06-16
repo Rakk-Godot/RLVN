@@ -2,7 +2,7 @@ extends Control
 
 signal finished
 signal stats_changed
-
+signal change_anim
 
 @export var auto = false
 
@@ -204,6 +204,9 @@ func play_content():
 		$UI/Charname.text = ""
 		$UI/Charname.hide()
 
+
+
+
 	if content.find("||") >= 0:
 		var all_content = content
 		var split_content := Array(all_content.split("||"))
@@ -212,6 +215,14 @@ func play_content():
 		split_content.erase(new_content)
 		for each in split_content:
 			emit_signal("stats_changed",each)
+			
+	if content.find("%%") >= 0:
+		var _anim = content.split("%%")[1]
+		var _node = _anim.split("_")[0]
+		var _emo = _anim.split("_")[1]
+		emit_signal("change_anim",_node,_emo)
+		content = _anim.split("%%")[0]
+
 	content_node.visible_characters = 0
 	content_node.text = content
 	for each in filters.keys():

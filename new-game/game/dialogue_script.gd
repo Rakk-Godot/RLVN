@@ -3,7 +3,7 @@ extends RefCounted
 class_name DScript
 
 var story = {
-	"sample1": 
+	"main": 
 		
 {
 	"september_1||v1": {
@@ -33,7 +33,7 @@ var story = {
 		"content": [
 			"Guard$$Good day! We’re checking IDs.",],
 		"choice1": { "choice": "Thank you for doing your job!","response": [
-			"Politeness goes a long way.||sociallife_5",],"outcome": "september_4"},
+			"Politeness goes a long way.%%guard_happy||sociallife_5",],"outcome": "september_4"},
 		"choice2": { "choice": "Just nod quietly","response": [
 			"Alright, move along.",],"outcome": "september_4"},
 		"choice3": { "choice": "Do we really need this rule?","response": [
@@ -217,7 +217,6 @@ var story = {
 	"february_2||v1": {
 		"content": [],
 	},
-
 
 
 # end

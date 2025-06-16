@@ -6,7 +6,6 @@ const DELUXE = "deluxe"
 
 @export_group("Main")
 @export var version_code = "0.0.00"
-@export_enum(DEMO, FULL, DELUXE) var version_type = FULL
 @export var build_name = ""
 @export var save_name = "save_data"
 @export var dev_mode = false
@@ -23,10 +22,7 @@ const DELUXE = "deluxe"
 func _ready() -> void:
 	Globals.loader_scenes = loader_paths
 	Globals.version_code = version_code
-	Globals.version_type = version_type
 	Globals.build_name = build_name
-
-	
 
 func _process(_delta: float) -> void:
 	get_tree().change_scene_to_file("res://game/main_menu.tscn")

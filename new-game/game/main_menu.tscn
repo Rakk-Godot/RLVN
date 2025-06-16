@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvkrnm7hym1yk"]
+[gd_scene load_steps=5 format=3 uid="uid://bvkrnm7hym1yk"]
 
 [ext_resource type="Script" uid="uid://khwdw4s2em15" path="res://game/main_menu.gd" id="1_2gctw"]
-[ext_resource type="PackedScene" uid="uid://bbohcqjiydicl" path="res://game/external_links.tscn" id="2_2ed8k"]
 [ext_resource type="PackedScene" uid="uid://b3cbhak0nta3o" path="res://game/action_box.tscn" id="2_20tr2"]
 [ext_resource type="Texture2D" uid="uid://dwc5at0671nl1" path="res://assets/test_scenes/testbg.jpg" id="2_t606k"]
 [ext_resource type="PackedScene" uid="uid://6p50e5bejksk" path="res://game/settings.tscn" id="3_wo36y"]
@@ -70,12 +69,6 @@ custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Quit"
-
-[node name="external_links" parent="." instance=ExtResource("2_2ed8k")]
-offset_left = 10.0
-offset_top = 670.0
-offset_right = 10.0
-offset_bottom = 670.0
 
 [node name="settings" parent="." instance=ExtResource("3_wo36y")]
 

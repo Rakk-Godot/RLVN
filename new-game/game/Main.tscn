@@ -1,0 +1,124 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3spmc7nwwk5i"]
+
+[ext_resource type="Script" uid="uid://ogtesyaks1ka" path="res://game/main.gd" id="1_2fjjk"]
+[ext_resource type="PackedScene" uid="uid://4ho7mnmbl115" path="res://game/dialogue_ui.tscn" id="2_ljq5a"]
+[ext_resource type="Script" uid="uid://djyv8woumdcn8" path="res://game/hud.gd" id="3_madmh"]
+
+[sub_resource type="Animation" id="Animation_2fjjk"]
+resource_name = "change_scene"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.63333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("overlay:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ljq5a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("overlay:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ljq5a"]
+_data = {
+&"RESET": SubResource("Animation_ljq5a"),
+&"change_scene": SubResource("Animation_2fjjk")
+}
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_2fjjk")
+
+[node name="BG" type="Node2D" parent="."]
+
+[node name="dialogue_ui" parent="." instance=ExtResource("2_ljq5a")]
+offset_left = 629.0
+offset_top = 361.0
+offset_right = 629.0
+offset_bottom = 361.0
+
+[node name="MainMenu" type="Button" parent="."]
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 199.0
+offset_bottom = 59.0
+text = "Return to main menu"
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("3_madmh")
+
+[node name="progress_container" type="VBoxContainer" parent="HUD"]
+offset_left = 1074.0
+offset_top = 3.0
+offset_right = 1274.0
+offset_bottom = 43.0
+
+[node name="gpa" type="ProgressBar" parent="HUD/progress_container"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="sociallife" type="ProgressBar" parent="HUD/progress_container"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="depression" type="ProgressBar" parent="HUD/progress_container"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Transitioner" type="CanvasLayer" parent="."]
+
+[node name="overlay" type="ColorRect" parent="Transitioner"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="transition_anim" type="AnimationPlayer" parent="Transitioner"]
+libraries = {
+&"": SubResource("AnimationLibrary_ljq5a")
+}
+
+[connection signal="change_anim" from="dialogue_ui" to="." method="_on_dialogue_ui_change_anim"]
+[connection signal="finished" from="dialogue_ui" to="." method="_on_dialogue_ui_finished"]
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]
