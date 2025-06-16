@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcfrw0i1uvs67"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_gv5kr"]
+[ext_resource type="Texture2D" uid="uid://cao1woubcknoy" path="res://assets/background/guard_house.png" id="2_w6cat"]
+[ext_resource type="PackedScene" uid="uid://bo5w6vbrp7dks" path="res://spirtes/guard.tscn" id="3_vbray"]
+
+[node name="september_4" instance=ExtResource("1_gv5kr")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_w6cat")
+
+[node name="guard" parent="sprite_parent" index="0" instance=ExtResource("3_vbray")]
+position = Vector2(701, 448)

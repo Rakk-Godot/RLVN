@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://c247vsci3a24a"]
+
+[ext_resource type="PackedScene" uid="uid://btugli3l60438" path="res://spirtes/base_sprite.tscn" id="1_odg15"]
+[ext_resource type="Texture2D" uid="uid://orqu3e6dthy2" path="res://assets/sprites/male_support/Male_Support_Angry.png" id="2_jqyex"]
+[ext_resource type="Texture2D" uid="uid://c6bhchd2hlcy0" path="res://assets/sprites/male_support/Male_Support_Happy.png" id="3_mr4ct"]
+[ext_resource type="Texture2D" uid="uid://7tljc14mxlyk" path="res://assets/sprites/male_support/Male_Support_Normal.png" id="4_qf8m1"]
+[ext_resource type="Texture2D" uid="uid://v5h71ad3kt86" path="res://assets/sprites/male_support/Male_Support_party.png" id="5_3c11w"]
+[ext_resource type="Texture2D" uid="uid://cfidepfsui1qo" path="res://assets/sprites/male_support/Male_Support_Sad.png" id="6_t0jfq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i3sgv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jqyex")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mr4ct")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qf8m1")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_3c11w")
+}],
+"loop": true,
+"name": &"party",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_t0jfq")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}]
+
+[node name="male-support" instance=ExtResource("1_odg15")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_i3sgv")
+animation = &"party"
+autoplay = "normal"

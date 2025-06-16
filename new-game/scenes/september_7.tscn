@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ja61b7v3lfh7"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_mq84l"]
+[ext_resource type="Texture2D" uid="uid://ie0qs86n8kxg" path="res://assets/background/entrance_way.png" id="2_diswx"]
+[ext_resource type="PackedScene" uid="uid://dbsxra7wrcsoh" path="res://spirtes/female-support.tscn" id="3_diswx"]
+
+[node name="september_7" instance=ExtResource("1_mq84l")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_diswx")
+
+[node name="female-support" parent="sprite_parent" index="0" instance=ExtResource("3_diswx")]
+position = Vector2(654, 421)

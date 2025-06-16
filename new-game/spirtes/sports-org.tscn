@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://7ynnxgpclqpw"]
+
+[ext_resource type="PackedScene" uid="uid://btugli3l60438" path="res://spirtes/base_sprite.tscn" id="1_mivm2"]
+[ext_resource type="Texture2D" uid="uid://c21778fhlx5ct" path="res://assets/sprites/sport_org/Sports_Org_Angry.png" id="2_1e0uq"]
+[ext_resource type="Texture2D" uid="uid://cg366qk8ho68j" path="res://assets/sprites/sport_org/Sports_Org_Happy.png" id="3_sb8tj"]
+[ext_resource type="Texture2D" uid="uid://c6ie1quowp46b" path="res://assets/sprites/sport_org/Sports_Org_Normal.png" id="4_j5af5"]
+[ext_resource type="Texture2D" uid="uid://c1jjylkxvlmx6" path="res://assets/sprites/sport_org/Sports_Org_Sad.png" id="5_pryys"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_06c5y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1e0uq")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sb8tj")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_j5af5")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pryys")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}]
+
+[node name="sports-org" instance=ExtResource("1_mivm2")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_06c5y")
+animation = &"angry"

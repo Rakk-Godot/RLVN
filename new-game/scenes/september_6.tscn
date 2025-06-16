@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://6g7vkhoclpqv"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_i0pgs"]
+[ext_resource type="Texture2D" uid="uid://ie0qs86n8kxg" path="res://assets/background/entrance_way.png" id="2_gsni2"]
+[ext_resource type="PackedScene" uid="uid://cgewm45ths0c0" path="res://spirtes/male-bully.tscn" id="3_i6m3k"]
+
+[node name="september_6" instance=ExtResource("1_i0pgs")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_gsni2")
+
+[node name="male-bully" parent="sprite_parent" index="0" instance=ExtResource("3_i6m3k")]
+position = Vector2(682, 370)

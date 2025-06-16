@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2gv2b8px61xj"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_aqept"]
+[ext_resource type="Texture2D" uid="uid://cpy3yq654t5yj" path="res://assets/background/university_stage.png" id="2_aqept"]
+[ext_resource type="PackedScene" uid="uid://7ynnxgpclqpw" path="res://spirtes/sports-org.tscn" id="3_km6wo"]
+
+[node name="october_3" instance=ExtResource("1_aqept")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_aqept")
+
+[node name="sports-org" parent="sprite_parent" index="0" instance=ExtResource("3_km6wo")]
+position = Vector2(654, 432)

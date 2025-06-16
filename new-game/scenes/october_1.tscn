@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1fsjrkvsjbpv"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_o5s55"]
+[ext_resource type="Texture2D" uid="uid://dqk1vic31jcgt" path="res://assets/background/comlab_inside.png" id="2_4uycl"]
+[ext_resource type="PackedScene" uid="uid://c247vsci3a24a" path="res://spirtes/male-support.tscn" id="3_dou78"]
+
+[node name="october_1" instance=ExtResource("1_o5s55")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_4uycl")
+
+[node name="male-support" parent="sprite_parent" index="0" instance=ExtResource("3_dou78")]
+position = Vector2(517, 505)
