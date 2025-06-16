@@ -21,9 +21,6 @@ var version_name : String
 var version_type : String
 var build_name : String
 
-var dev_mode : bool
-var demo_mode : bool
-var deluxe_mode : bool
 var loader_scenes = []
 
 var queue_path : String

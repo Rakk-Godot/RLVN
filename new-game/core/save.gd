@@ -1,12 +1,5 @@
 extends Node
 
-var link_discord = ""
-var link_twitter = ""
-var link_patreon = ""
-var link_itch = ""
-var link_steam = ""
-var link_substar = ""
-
 var save_name = "data"
 var save_format = ".dat"
 

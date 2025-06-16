@@ -203,8 +203,7 @@ func play_content():
 	else:
 		$UI/Charname.text = ""
 		$UI/Charname.hide()
-	
-	
+
 	if content.find("||") >= 0:
 		var all_content = content
 		var split_content := Array(all_content.split("||"))
@@ -213,11 +212,8 @@ func play_content():
 		split_content.erase(new_content)
 		for each in split_content:
 			emit_signal("stats_changed",each)
-	
 	content_node.visible_characters = 0
 	content_node.text = content
-
-
 	for each in filters.keys():
 		content_node.text = content_node.text.replace(each, filters[each])
 	content_node.show()

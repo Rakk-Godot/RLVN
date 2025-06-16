@@ -21,38 +21,12 @@ const DELUXE = "deluxe"
 @export var substar = ""
 	
 func _ready() -> void:
-	Save.save_name = save_name
-	Save.link_discord = discord
-	Save.link_patreon = patreon
-	Save.link_itch = itch
-	Save.link_twitter = x
-	Save.link_steam = steam
-	Save.link_substar = substar
-	
 	Globals.loader_scenes = loader_paths
 	Globals.version_code = version_code
 	Globals.version_type = version_type
 	Globals.build_name = build_name
+
 	
-	Globals.dev_mode = dev_mode
-	
-	if version_type == DEMO:
-		Globals.demo_mode = true
-		Globals.deluxe_mode = false
-		Globals.version_name = "free"
-	elif version_type == FULL:
-		Globals.demo_mode = false
-		Globals.deluxe_mode = false
-		Globals.version_name = "full"
-	elif version_type == DELUXE:
-		Globals.demo_mode = false
-		Globals.deluxe_mode = true
-		Globals.version_name = "deluxe"
-	else:
-		Globals.version_name = "unknown"
-	
-	if dev_mode == true:
-		Globals.version_name = "developer"
-	
+
 func _process(_delta: float) -> void:
-	get_tree().change_scene_to_file("res://game/disclaimer.tscn")
+	get_tree().change_scene_to_file("res://game/main_menu.tscn")

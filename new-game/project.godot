@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="T E M P L A T E    V 5"
+config/name="Reinforcement Learning - VN"
 config/version="0.0.1"
 run/main_scene="uid://b8p23ktly31fb"
 config/features=PackedStringArray("4.4", "GL Compatibility")

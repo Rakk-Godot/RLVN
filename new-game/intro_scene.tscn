@@ -4,4 +4,3 @@
 
 [node name="IntroScene" type="Node"]
 script = ExtResource("1_fqpck")
-loader_paths = []
