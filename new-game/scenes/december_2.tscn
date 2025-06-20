@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg87d3dy0d84x"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_dlcu6"]
+[ext_resource type="Texture2D" uid="uid://djxwic6svmkxr" path="res://assets/background/paskuhan.png" id="2_2kyrx"]
+[ext_resource type="PackedScene" uid="uid://c247vsci3a24a" path="res://spirtes/male-support.tscn" id="3_2kyrx"]
+
+[node name="december_2" instance=ExtResource("1_dlcu6")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_2kyrx")
+
+[node name="male-support" parent="sprite_parent" index="0" instance=ExtResource("3_2kyrx")]
+position = Vector2(640, 687)
+
+[node name="AnimatedSprite2D" parent="sprite_parent/male-support" index="0"]
+autoplay = "party"
+frame_progress = 0.101431
+
+[editable path="sprite_parent/male-support"]

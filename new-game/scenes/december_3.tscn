@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbux2gq7gly5y"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_6vsop"]
+[ext_resource type="Texture2D" uid="uid://dkmsw2gk66v4" path="res://assets/background/chirstmas_tree.png" id="2_6vsop"]
+[ext_resource type="PackedScene" uid="uid://dbsxra7wrcsoh" path="res://spirtes/female-support.tscn" id="3_amrpm"]
+
+[node name="december_3" instance=ExtResource("1_6vsop")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_6vsop")
+
+[node name="female-support" parent="sprite_parent" index="0" instance=ExtResource("3_amrpm")]
+position = Vector2(968, 648)
+
+[node name="AnimatedSprite2D" parent="sprite_parent/female-support" index="0"]
+animation = &"party"
+autoplay = "party"
+
+[editable path="sprite_parent/female-support"]

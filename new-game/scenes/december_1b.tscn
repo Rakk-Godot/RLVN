@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://k0nlurrp57fg"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_dsyab"]
+[ext_resource type="Texture2D" uid="uid://bbxvj0x80cy5x" path="res://assets/background/home.png" id="2_2shtp"]
+
+[node name="december_1b" instance=ExtResource("1_dsyab")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_2shtp")

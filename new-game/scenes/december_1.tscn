@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://buu0iv7rosu37"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_jnfm7"]
+[ext_resource type="Texture2D" uid="uid://dy5nqqfu2ux24" path="res://assets/background/cvsu_main_front.png" id="2_jlunv"]
+[ext_resource type="PackedScene" uid="uid://dbsxra7wrcsoh" path="res://spirtes/female-support.tscn" id="3_jlunv"]
+
+[node name="december_1" instance=ExtResource("1_jnfm7")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_jlunv")
+
+[node name="female-support" parent="sprite_parent" index="0" instance=ExtResource("3_jlunv")]
+position = Vector2(623, 613)
+
+[node name="AnimatedSprite2D" parent="sprite_parent/female-support" index="0"]
+animation = &"party"
+autoplay = "party"
+
+[editable path="sprite_parent/female-support"]
