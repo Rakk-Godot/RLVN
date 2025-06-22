@@ -1,13 +1,72 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3cbhak0nta3o"]
+[gd_scene load_steps=7 format=3 uid="uid://b3cbhak0nta3o"]
 
 [ext_resource type="Script" uid="uid://30g6irj32dg2" path="res://game/action_box.gd" id="1_3djkp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3djkp"]
-bg_color = Color(0.051971, 0.051971, 0.0519709, 1)
+bg_color = Color(0.337255, 0.168627, 0.0509804, 0.670588)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gnyxn"]
+bg_color = Color(0.160784, 0.113725, 0.105882, 0.670588)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 30.0
+expand_margin_right = 30.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqf7v"]
+bg_color = Color(0.610385, 0.326605, 0.130152, 0.670588)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 30.0
+expand_margin_right = 30.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fr5px"]
+bg_color = Color(0.275566, 0.133392, 0.0343384, 0.670588)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 30.0
+expand_margin_right = 30.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emnww"]
+bg_color = Color(0.337255, 0.168627, 0.0509804, 0.670588)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 30.0
+expand_margin_right = 30.0
 
 [node name="action_box" type="Control"]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,27 +110,42 @@ vertical_alignment = 1
 
 [node name="Confirm" type="Button" parent="ui/Panel"]
 layout_mode = 0
-offset_left = -27.0
-offset_top = 154.0
-offset_right = 152.0
-offset_bottom = 212.0
+offset_left = 68.0
+offset_top = 189.0
+offset_right = 247.0
+offset_bottom = 247.0
+focus_mode = 0
 theme_override_font_sizes/font_size = 24
+theme_override_styles/disabled = SubResource("StyleBoxFlat_gnyxn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nqf7v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fr5px")
+theme_override_styles/normal = SubResource("StyleBoxFlat_emnww")
 text = "yes"
 
 [node name="Decline" type="Button" parent="ui/Panel"]
 layout_mode = 0
-offset_left = 640.0
-offset_top = 154.0
-offset_right = 819.0
-offset_bottom = 212.0
+offset_left = 525.0
+offset_top = 189.0
+offset_right = 704.0
+offset_bottom = 247.0
+focus_mode = 0
 theme_override_font_sizes/font_size = 24
+theme_override_styles/disabled = SubResource("StyleBoxFlat_gnyxn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nqf7v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fr5px")
+theme_override_styles/normal = SubResource("StyleBoxFlat_emnww")
 text = "Decline"
 
 [node name="Decline2" type="Button" parent="ui/Panel"]
 layout_mode = 0
 offset_left = 288.0
-offset_top = 154.0
+offset_top = 189.0
 offset_right = 467.0
-offset_bottom = 212.0
+offset_bottom = 247.0
+focus_mode = 0
 theme_override_font_sizes/font_size = 24
+theme_override_styles/disabled = SubResource("StyleBoxFlat_gnyxn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nqf7v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fr5px")
+theme_override_styles/normal = SubResource("StyleBoxFlat_emnww")
 text = "Decline"

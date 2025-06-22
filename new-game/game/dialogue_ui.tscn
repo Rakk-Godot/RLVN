@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://4ho7mnmbl115"]
+[gd_scene load_steps=20 format=3 uid="uid://4ho7mnmbl115"]
 
 [ext_resource type="Script" uid="uid://bc4cfnhfawcyu" path="res://game/dialogue_ui.gd" id="1_6bjl5"]
 [ext_resource type="Script" uid="uid://dxhbxs07phtl0" path="res://game/dialogue_reader.gd" id="2_exbti"]
@@ -7,7 +7,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itxc8"]
 content_margin_left = 50.0
 content_margin_right = 50.0
-bg_color = Color(0.0156863, 0.0156863, 0.0156863, 0.756863)
+bg_color = Color(0.337255, 0.168627, 0.0509804, 0.670588)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_itxc8"]
 
@@ -32,10 +32,56 @@ bg_color = Color(0.0156863, 0.0156863, 0.0156863, 0.756863)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dsov"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3df7"]
-bg_color = Color(0.153145, 0.139927, 0.146964, 1)
+bg_color = Color(0.160784, 0.113725, 0.105882, 0.670588)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 30.0
+expand_margin_right = 30.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rddtp"]
+bg_color = Color(0.610385, 0.326605, 0.130152, 0.670588)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 30.0
+expand_margin_right = 30.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6137"]
+bg_color = Color(0.275566, 0.133392, 0.0343384, 0.670588)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 30.0
+expand_margin_right = 30.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7cw0"]
-bg_color = Color(0.0627451, 0.0705882, 0.0705882, 0.894118)
+bg_color = Color(0.337255, 0.168627, 0.0509804, 0.670588)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 30.0
+expand_margin_right = 30.0
 
 [node name="dialogue_ui" type="Control"]
 layout_mode = 3
@@ -135,79 +181,65 @@ offset_right = 117.0
 offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="choice1" type="Button" parent="UI/Choices"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_i7cw0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rddtp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m6137")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i7cw0")
 text = "Choice 1"
 script = ExtResource("3_s3df7")
 
 [node name="choice2" type="Button" parent="UI/Choices"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_i7cw0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rddtp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m6137")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i7cw0")
 text = "Choice 1"
 script = ExtResource("3_s3df7")
 
 [node name="choice3" type="Button" parent="UI/Choices"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_i7cw0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rddtp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m6137")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i7cw0")
 text = "Choice 1"
 script = ExtResource("3_s3df7")
 
 [node name="choice4" type="Button" parent="UI/Choices"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_i7cw0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rddtp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m6137")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i7cw0")
 text = "Choice 1"
 script = ExtResource("3_s3df7")
 
 [node name="choice5" type="Button" parent="UI/Choices"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_s3df7")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_i7cw0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_s3df7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rddtp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m6137")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i7cw0")
 text = "Choice 1"
 script = ExtResource("3_s3df7")

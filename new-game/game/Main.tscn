@@ -1,36 +1,60 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3spmc7nwwk5i"]
+[gd_scene load_steps=11 format=3 uid="uid://b3spmc7nwwk5i"]
 
 [ext_resource type="Script" uid="uid://ogtesyaks1ka" path="res://game/main.gd" id="1_2fjjk"]
 [ext_resource type="PackedScene" uid="uid://4ho7mnmbl115" path="res://game/dialogue_ui.tscn" id="2_ljq5a"]
 [ext_resource type="Script" uid="uid://djyv8woumdcn8" path="res://game/hud.gd" id="3_madmh"]
 
-[sub_resource type="Animation" id="Animation_2fjjk"]
-resource_name = "change_scene"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("overlay:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.63333, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("overlay:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fjjk"]
+bg_color = Color(0.160784, 0.113725, 0.105882, 0.670588)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 30.0
+expand_margin_right = 30.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljq5a"]
+bg_color = Color(0.610385, 0.326605, 0.130152, 0.670588)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 30.0
+expand_margin_right = 30.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_madmh"]
+bg_color = Color(0.275566, 0.133392, 0.0343384, 0.670588)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 30.0
+expand_margin_right = 30.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yo8gm"]
+bg_color = Color(0.337255, 0.168627, 0.0509804, 0.670588)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 30.0
+expand_margin_right = 30.0
 
 [sub_resource type="Animation" id="Animation_ljq5a"]
 length = 0.001
@@ -59,6 +83,54 @@ tracks/1/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_2fjjk"]
+resource_name = "change_scene"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.63333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("overlay:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"dialogue_scene"
+}, {
+"args": [],
+"method": &"reset_dialogue"
+}, {
+"args": [],
+"method": &"change_dialogue"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ljq5a"]
 _data = {
 &"RESET": SubResource("Animation_ljq5a"),
@@ -77,11 +149,16 @@ offset_right = 629.0
 offset_bottom = 361.0
 
 [node name="MainMenu" type="Button" parent="."]
-offset_left = 16.0
-offset_top = 14.0
-offset_right = 199.0
-offset_bottom = 59.0
-text = "Return to main menu"
+offset_left = 36.0
+offset_top = 9.0
+offset_right = 163.0
+offset_bottom = 54.0
+focus_mode = 0
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2fjjk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ljq5a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_madmh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yo8gm")
+text = "Main Menu"
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("3_madmh")

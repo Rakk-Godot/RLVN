@@ -48,3 +48,6 @@ sprite_frames = SubResource("SpriteFrames_y7yt3")
 animation = &"normal"
 autoplay = "normal"
 frame_progress = 0.625063
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "idle"

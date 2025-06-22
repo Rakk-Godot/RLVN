@@ -3,6 +3,8 @@ extends Node2D
 @onready var dialogue_ui = $dialogue_ui
 @onready var BG = $BG
 var active_scene
+var outcome : String
+
 
 func _ready() -> void:
 	var story = DScript.new().story
@@ -19,8 +21,20 @@ func _on_dialogue_ui_finished(_outcome) -> void:
 	if dialogue_ui.reader.is_end("main", _outcome) == true:
 		Globals.change_scene(Globals.path_menu)
 	else:
-		dialogue_ui.init_next(_outcome)
-		dialogue_scene()
+		outcome = _outcome
+		dialogue_ui.active_key = outcome
+		$Transitioner/transition_anim.play("change_scene")
+		#dialogue_ui.init_next(_outcome)
+		#dialogue_scene()
+
+
+func change_dialogue() -> void:
+	
+	dialogue_ui.init_next(outcome)
+
+func reset_dialogue() -> void:
+	dialogue_ui.change_dial_scene()
+
 
 func dialogue_scene():
 	var path = "res://scenes/" + dialogue_ui.active_key + ".tscn"

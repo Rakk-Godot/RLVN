@@ -200,12 +200,10 @@ func play_content():
 		var __name = content.split("$$")[0]
 		content = content.split("$$")[1]
 		$UI/Charname.text = __name
+		$UI/Charname.show()
 	else:
 		$UI/Charname.text = ""
 		$UI/Charname.hide()
-
-
-
 
 	if content.find("||") >= 0:
 		var all_content = content
@@ -229,6 +227,12 @@ func play_content():
 		content_node.text = content_node.text.replace(each, filters[each])
 	content_node.show()
 	tween_content(content)
+
+
+func change_dial_scene() -> void:
+	content_node.text = ""
+	$UI/Charname.text = ""
+	$UI/Charname.hide()
 
 func tween_content(_content):
 	if current_tween != null:
