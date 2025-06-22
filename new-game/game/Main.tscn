@@ -170,16 +170,45 @@ offset_right = 1274.0
 offset_bottom = 43.0
 
 [node name="gpa" type="ProgressBar" parent="HUD/progress_container"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/progress_container/gpa"]
+layout_mode = 0
+offset_left = -46.0
+offset_right = -6.0
+offset_bottom = 23.0
+text = "GPA:"
+horizontal_alignment = 2
 
 [node name="sociallife" type="ProgressBar" parent="HUD/progress_container"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+value = 30.0
+
+[node name="Label" type="Label" parent="HUD/progress_container/sociallife"]
+layout_mode = 0
+offset_left = -87.0
+offset_right = -5.0
+offset_bottom = 23.0
+text = "Social Life:"
+horizontal_alignment = 2
 
 [node name="depression" type="ProgressBar" parent="HUD/progress_container"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+value = 50.0
+
+[node name="Label" type="Label" parent="HUD/progress_container/depression"]
+layout_mode = 0
+offset_left = -98.0
+offset_right = -6.0
+offset_bottom = 23.0
+text = "Depression:"
+horizontal_alignment = 2
 
 [node name="Transitioner" type="CanvasLayer" parent="."]
 

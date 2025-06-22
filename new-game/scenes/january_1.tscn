@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://vek1328ctvn1"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_ajqwc"]
+
+[node name="january_1" instance=ExtResource("1_ajqwc")]

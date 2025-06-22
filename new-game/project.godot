@@ -22,6 +22,7 @@ config/icon="uid://pqtkou0lrm6u"
 
 Globals="*res://core/globals.tscn"
 Save="*res://core/save.gd"
+Agent="*res://core/Agent.tscn"
 
 [debug]
 

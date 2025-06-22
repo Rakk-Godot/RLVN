@@ -13,8 +13,11 @@ func update_save(reset=false):
 	ndata["time"] = timestamp()
 	ndata["current_arc"] = Globals.current_arc
 	ndata["current_scene"] = Globals.current_scene
-	ndata["learn_count"] = Globals.learn_count
-	ndata["agent_data"] = Globals.agent_data
+	ndata["learn_count"] = Agent.learn_count
+	ndata["agent_data"] = Agent.agent_data
+	ndata["depression"] = Agent.depression
+	ndata["gpa"] = Agent.gpa
+	ndata["sociallife"] = Agent.sociallife
 	_game_save(save_name, ndata)
 	
 func continue_save():
@@ -23,8 +26,11 @@ func continue_save():
 		Globals.game_data = ldata["main"]
 		Globals.current_arc = ldata["current_arc"]
 		Globals.current_scene = ldata["current_scene"] 
-		Globals.learn_count = ldata["learn_count"]
-		Globals.agent_data = ldata["agent_data"]
+		Agent.learn_count = ldata["learn_count"]
+		Agent.agent_data = ldata["agent_data"]
+		Agent.gpa = ldata["gpa"]
+		Agent.depression = ldata["depression"]
+		Agent.sociallife = ldata["sociallife"]
 		return true
 	return false
 
@@ -42,7 +48,6 @@ func _game_save(title, what):
 	var file = FileAccess.open(path, FileAccess.WRITE)
 	file.store_var(what, true)
 	file.close()
-	#print(path, " saved")
 
 func _game_load(title):
 	var path = "user://"+title+save_format
@@ -50,7 +55,6 @@ func _game_load(title):
 		var file = FileAccess.open(path, FileAccess.READ)
 		var content = file.get_var(true)
 		file.close()
-		#print(path, " loaded")
 		return content
 	print(path, " failed to load")
 	return null

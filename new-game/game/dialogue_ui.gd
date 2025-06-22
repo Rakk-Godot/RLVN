@@ -33,6 +33,8 @@ var custom_choices = {}
 var disabled_keyboard = false
 var transitioning : bool = false
 
+var last_choice : String
+
 
 func _ready() -> void:
 	for choice in $UI/Choices.get_children():
@@ -93,6 +95,7 @@ func _on_choice(button):
 			choices_visible(false)
 			choice_outcome = button.outcome
 			if button.response.size() > 0:
+				last_choice = button.choice_text
 				choice_response = true
 				content_arr = button.response
 				content_idx = 0
@@ -117,12 +120,15 @@ func choices_visible(_visible):
 
 func show_choices():
 	var choices = reader.get_choices()
+	var idx = 1
 	for each in choices:
 		var button = $UI/Choices.get_node(each["title"])
 		button.text = each["text"]
+		button.choice_text = "choice" + str(idx)
 		button.response = each["resp"]
 		button.outcome = each["outcome"]
 		button.show()
+		idx += 1
 	is_choices_active = true
 
 func show_custom_choices(_arr):
@@ -214,8 +220,8 @@ func play_content():
 		content = new_content
 		split_content.erase(new_content)
 		for each in split_content:
-			emit_signal("stats_changed",each)
-			
+			emit_signal("stats_changed",each,last_choice)
+
 	if content.find("%%") >= 0:
 		var _anim = content.split("%%")[1]
 		var _node = _anim.split("_")[0]

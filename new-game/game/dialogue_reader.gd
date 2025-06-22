@@ -30,23 +30,16 @@ func init_pre(_story):
 func init_read(sclass, key, random=true):
 	var variant = "v1"
 	var delimeter = "||"
-	
 	safe_key = key + delimeter + variant
-	
 	if random:
 		var story_variant_keys = []
 		for _key in story[sclass].keys():
 			var k = _key.split("||")
-			
-#			print("k[0]=" + str(k[0]) + " && key" + str(key))
-			
 			if k[0] == key:
 				story_variant_keys.append(k[1])
-				
 		if story_variant_keys.size() > 0:
 			variant = story_variant_keys[randi() % story_variant_keys.size()]
-				
-	
+
 	og_key = key
 	curr_variant = variant
 	init_key = key + delimeter + variant

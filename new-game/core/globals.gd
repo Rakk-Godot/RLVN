@@ -27,8 +27,7 @@ var game_data = {}
 
 var current_scene : String = "september_1"
 var current_arc : String = "main"
-var agent_data : Dictionary = {}
-var learn_count : int = 0
+
 
 
 var text_speed = 0.05
@@ -52,8 +51,11 @@ func _ready() -> void:
 func reset_data():
 	current_scene = "september_1"
 	current_arc = "main"
-	agent_data = {}
-	learn_count = 0
+	Agent.agent_data = {}
+	Agent.learn_count = 0
+	Agent.gpa =  0.0
+	Agent.sociallife = 30.0
+	Agent.depression = 50.0
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("screenshot"):
