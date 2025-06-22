@@ -49,3 +49,4 @@ script = ExtResource("1_0w7h0")
 libraries = {
 &"": SubResource("AnimationLibrary_xa1sn")
 }
+autoplay = "idle"

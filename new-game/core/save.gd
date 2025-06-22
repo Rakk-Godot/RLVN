@@ -11,12 +11,20 @@ func update_save(reset=false):
 	var ndata = {}
 	ndata["main"] = Globals.game_data
 	ndata["time"] = timestamp()
+	ndata["current_arc"] = Globals.current_arc
+	ndata["current_scene"] = Globals.current_scene
+	ndata["learn_count"] = Globals.learn_count
+	ndata["agent_data"] = Globals.agent_data
 	_game_save(save_name, ndata)
 	
 func continue_save():
 	var ldata = _game_load(save_name)
 	if ldata != null:
 		Globals.game_data = ldata["main"]
+		Globals.current_arc = ldata["current_arc"]
+		Globals.current_scene = ldata["current_scene"] 
+		Globals.learn_count = ldata["learn_count"]
+		Globals.agent_data = ldata["agent_data"]
 		return true
 	return false
 

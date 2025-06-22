@@ -25,6 +25,12 @@ var loader_scenes = []
 var queue_path : String
 var game_data = {}
 
+var current_scene : String = "september_1"
+var current_arc : String = "main"
+var agent_data : Dictionary = {}
+var learn_count : int = 0
+
+
 var text_speed = 0.05
 var audio_settings_data = {
 	"Master" : 1.0,
@@ -44,7 +50,10 @@ func _ready() -> void:
 	load_settings_data()
 	
 func reset_data():
-	pass
+	current_scene = "september_1"
+	current_arc = "main"
+	agent_data = {}
+	learn_count = 0
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("screenshot"):

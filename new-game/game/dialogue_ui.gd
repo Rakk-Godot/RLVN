@@ -31,6 +31,8 @@ var active = false
 var outcome_key = null
 var custom_choices = {}
 var disabled_keyboard = false
+var transitioning : bool = false
+
 
 func _ready() -> void:
 	for choice in $UI/Choices.get_children():
@@ -161,7 +163,7 @@ func _on_next_click():
 	next_slide()
 
 func _input(_event: InputEvent) -> void:
-	if disabled_keyboard == false:
+	if disabled_keyboard == false and transitioning == false:
 		if Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_accept"):
 			next_slide()
 		if Input.is_action_just_pressed("ui_left"):
@@ -219,7 +221,7 @@ func play_content():
 		var _node = _anim.split("_")[0]
 		var _emo = _anim.split("_")[1]
 		emit_signal("change_anim",_node,_emo)
-		content = _anim.split("%%")[0]
+		content = content.split("%%")[0]
 
 	content_node.visible_characters = 0
 	content_node.text = content
@@ -233,6 +235,8 @@ func change_dial_scene() -> void:
 	content_node.text = ""
 	$UI/Charname.text = ""
 	$UI/Charname.hide()
+	for each in $UI/Choices.get_children():
+		each.hide()
 
 func tween_content(_content):
 	if current_tween != null:

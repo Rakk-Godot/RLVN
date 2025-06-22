@@ -24,13 +24,12 @@ func _on_dialogue_ui_finished(_outcome) -> void:
 		outcome = _outcome
 		dialogue_ui.active_key = outcome
 		$Transitioner/transition_anim.play("change_scene")
-		#dialogue_ui.init_next(_outcome)
-		#dialogue_scene()
-
+		dialogue_ui.transitioning = true
+		
 
 func change_dialogue() -> void:
-	
 	dialogue_ui.init_next(outcome)
+	dialogue_ui.transitioning = false
 
 func reset_dialogue() -> void:
 	dialogue_ui.change_dial_scene()
