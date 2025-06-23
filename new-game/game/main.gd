@@ -62,4 +62,5 @@ func _on_main_menu_pressed() -> void:
 	Globals.change_scene(Globals.path_menu)
 
 func _on_dialogue_ui_change_anim(_node : String,_anim: String) -> void:
-	active_scene.change_anim(_node,_anim)
+	if is_instance_valid(active_scene):
+		active_scene.change_anim(_node,_anim)

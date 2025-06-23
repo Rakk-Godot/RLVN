@@ -17,6 +17,9 @@ func _ready() -> void:
 	$Close.pressed.connect(hide_settings)
 	update_sliders()
 	initialize_music_sliders()
+	for each in Globals.audio_settings_data:
+		_on_music_slider_changed(Globals.audio_settings_data[each],each)
+
 
 func update_sliders():
 	for each in Globals.audio_settings_data:
@@ -38,10 +41,15 @@ func initialize_music_sliders():
 			if slider != null:
 				slider.value_changed.connect(_on_music_slider_changed.bind(each.name))
 
+
+
+
 func _on_music_slider_changed(_value : float, _bus : String):
 	audio_settings_changed = true
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(_bus), linear_to_db(_value))
 	Globals.audio_settings_data[_bus] = _value
+
+
 
 func update_settings():
 	pass

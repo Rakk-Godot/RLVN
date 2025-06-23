@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=3 uid="uid://cs3jslp6l7hfo"]
+
+[ext_resource type="FontFile" uid="uid://dcarel0pphdje" path="res://assets/fonts/Truculenta_60pt-Regular.ttf" id="1_dy0ap"]
+[ext_resource type="Script" uid="uid://dx06cnwmsoyvp" path="res://core/angent_notifier.gd" id="1_ymu8r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0peye"]
+bg_color = Color(0.337255, 0.168627, 0.0509804, 0.670588)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="FontVariation" id="FontVariation_pycw4"]
+base_font = ExtResource("1_dy0ap")
+spacing_top = -6
+
+[sub_resource type="Animation" id="Animation_g8onn"]
+resource_name = "start"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ymu8r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_enjh4"]
+_data = {
+&"RESET": SubResource("Animation_ymu8r"),
+&"start": SubResource("Animation_g8onn")
+}
+
+[node name="angent_notifier" type="Panel"]
+custom_minimum_size = Vector2(150, 70)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0peye")
+script = ExtResource("1_ymu8r")
+
+[node name="Details" type="Label" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 5.0
+offset_right = 124.0
+offset_bottom = 58.0
+theme_override_fonts/font = SubResource("FontVariation_pycw4")
+theme_override_font_sizes/font_size = 14
+text = "Memory updated:
+September_1 - choice1
+Social Life: Inrease
+Result: Good"
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_enjh4")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

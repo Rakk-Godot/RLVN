@@ -53,7 +53,7 @@ func reset_data():
 	current_arc = "main"
 	Agent.agent_data = {}
 	Agent.learn_count = 0
-	Agent.gpa =  0.0
+	Agent.gpa =  30.0
 	Agent.sociallife = 30.0
 	Agent.depression = 50.0
 

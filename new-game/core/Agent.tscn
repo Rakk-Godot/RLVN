@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7i3am7l7egve"]
+[gd_scene load_steps=4 format=3 uid="uid://b7i3am7l7egve"]
 
 [ext_resource type="Script" uid="uid://db60l14fpawm7" path="res://core/agent.gd" id="1_46vhi"]
+[ext_resource type="AudioStream" uid="uid://b0ea8chvcltk7" path="res://assets/audio/click.wav" id="2_0peye"]
+[ext_resource type="PackedScene" uid="uid://cs3jslp6l7hfo" path="res://core/angent_notifier.tscn" id="3_owlr2"]
 
 [node name="Agent" type="Node"]
 script = ExtResource("1_46vhi")
+NOTIFIER = ExtResource("3_owlr2")
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0peye")
+bus = &"SFX"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="agent_container" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 1124.0
+offset_top = 139.0
+offset_right = 1274.0
+offset_bottom = 661.0
+mouse_filter = 2

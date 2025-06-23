@@ -1,8 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3spmc7nwwk5i"]
+[gd_scene load_steps=14 format=3 uid="uid://b3spmc7nwwk5i"]
 
 [ext_resource type="Script" uid="uid://ogtesyaks1ka" path="res://game/main.gd" id="1_2fjjk"]
 [ext_resource type="PackedScene" uid="uid://4ho7mnmbl115" path="res://game/dialogue_ui.tscn" id="2_ljq5a"]
 [ext_resource type="Script" uid="uid://djyv8woumdcn8" path="res://game/hud.gd" id="3_madmh"]
+[ext_resource type="FontFile" uid="uid://c1vkrfki8gyck" path="res://assets/fonts/Truculenta_60pt-SemiBold.ttf" id="3_yo8gm"]
+[ext_resource type="AudioStream" uid="uid://debvvikjv07vn" path="res://assets/audio/new_bgm/bgm_1.mp3" id="4_ljq5a"]
+
+[sub_resource type="FontVariation" id="FontVariation_fk7ia"]
+base_font = ExtResource("3_yo8gm")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fjjk"]
 bg_color = Color(0.160784, 0.113725, 0.105882, 0.670588)
@@ -154,6 +159,8 @@ offset_top = 9.0
 offset_right = 163.0
 offset_bottom = 54.0
 focus_mode = 0
+theme_override_fonts/font = SubResource("FontVariation_fk7ia")
+theme_override_font_sizes/font_size = 25
 theme_override_styles/disabled = SubResource("StyleBoxFlat_2fjjk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ljq5a")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_madmh")
@@ -224,6 +231,12 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"": SubResource("AnimationLibrary_ljq5a")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ljq5a")
+autoplay = true
+bus = &"BGM"
+parameters/looping = true
 
 [connection signal="change_anim" from="dialogue_ui" to="." method="_on_dialogue_ui_change_anim"]
 [connection signal="finished" from="dialogue_ui" to="." method="_on_dialogue_ui_finished"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8rwn0qlx6owi"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_uaq5i"]
+[ext_resource type="Texture2D" uid="uid://dqk1vic31jcgt" path="res://assets/background/comlab_inside.png" id="2_cwax4"]
+[ext_resource type="PackedScene" uid="uid://dbsxra7wrcsoh" path="res://spirtes/female-support.tscn" id="3_32fex"]
+
+[node name="january_3" instance=ExtResource("1_uaq5i")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_cwax4")
+
+[node name="female-support" parent="sprite_parent" index="0" instance=ExtResource("3_32fex")]
+position = Vector2(662, 488)
+
+[node name="AnimatedSprite2D" parent="sprite_parent/female-support" index="0"]
+frame_progress = 0.207658
+
+[editable path="sprite_parent/female-support"]

@@ -78,7 +78,15 @@ var story = {
 		"choice2": { "choice": "Sure, I guess.","response": [
 			"Cool. You’ll love the new comlabs.%%female-support_happy||sociallife_5",],"outcome": "september_8"},
 		"choice3": { "choice": "No thanks, I’ll figure it out.","response": [
-			"Alright, but don’t be afraid to ask next time.%%female-support_sad||depression_5",],"outcome": "september_8"},
+			"Alright, but don’t be afraid to ask next time.%%female-support_sad||depression_5",],"outcome": "september_7b"},
+	},
+	"september_7b||v1": {
+		"content": [
+			"Player$$I think I lost my way. What should I do?",],
+		"choice1": { "choice": "Go back to the girl who offered the tour.","response": [
+			"Player$$I hope she's still there.||depression_-3||sociallife_3",],"outcome": "september_8"},
+		"choice2": { "choice": "Just roam around.","response": [
+			"Player$$All right. I'll find it on my own.||sociallife_-2",],"outcome": "september_8"},
 	},
 	"september_8||v1": {
 		"content": [
@@ -128,7 +136,15 @@ var story = {
 		"choice2": { "choice": "Maybe, if I finish early.","response": [
 			"Fair enough! Hope you balance it well.%%female-support_normal||gpa_5||sociallife_2Female Support$$",],"outcome": "november_3"},
 		"choice3": { "choice": "Heck yes! I need a break.","response": [
-			"Female Support$$Woo! Let’s have fun before the stress kicks in!%%female-support_sad||gpa_-5||sociallife_5",],"outcome": "november_2"},
+			"Female Support$$Woo! Let’s have fun before the stress kicks in!%%female-support_sad||gpa_-5||sociallife_5",],"outcome": "november_1b"},
+	},
+	"november_1b||v1": {
+		"content": [
+			"Female Support$$Hey!! You came. Let's have fun tonight!",],
+		"choice1": { "choice": "I'm going home soon.","response": [
+			"Male Support$$It’s okay. At least you came.||gpa_3",],"outcome": "november_2"},
+		"choice2": { "choice": "Party all night!","response": [
+			"Male Support$$Yes, of course. Let's get wasted before midterm week!||gpa_-3||sociallife_3",],"outcome": "november_2"},
 	},
 	"november_2||v1": {
 		"content": [
@@ -192,39 +208,73 @@ var story = {
 	},
 	"january_1||v1": {
 		"content": [
-			"Male_Support_Happy$$Final exams are coming up. We’re having a party to destress—join us?",],
+			"Male Support$$Final exams are coming up. We’re having a party to destress—join us?",],
 		"choice1": { "choice": "I’ll study instead.","response": [
-			"We’ll miss you, but I respect the grind.||gpa_10||depression_5",],"outcome": "january_2"},
+			"Male Support$$We’ll miss you, but I respect the grind.||gpa_10||depression_5",],"outcome": "january_2"},
 		"choice2": { "choice": "Maybe I’ll stop by for a while.","response": [
-			"Balance is key, I like it!||gpa_5||sociallife_5",],"outcome": "january_2"},
+			"Male Support$$Balance is key, I like it!%%male-support_happy||gpa_5||sociallife_5",],"outcome": "january_2"},
 		"choice3": { "choice": "Sure! Let’s party!","response": [
-			"That’s the spirit! Just don’t forget finals!||gpa_-5||sociallife_10",],"outcome": "january_2"},
+			"Male Support$$That’s the spirit! Just don’t forget finals!%%male-support_happy||gpa_-5||sociallife_10",],"outcome": "january_1b"},
+	},
+	"january_1b||v1": {
+		"content": [
+			"Male Support$$Hey! You made it. Let's have fun!",],
+		"choice1": { "choice": "I will go home early.","response": [
+			"IMale Support$$ see. You still want to review.%%male-support_angry||gpa_5",],"outcome": "january_2"},
+		"choice2": { "choice": "Let's get wasted tonight.","response": [
+			"Male Support$$All right! Let's have some fun.%%male-support_happy||gpa_-5||sociallife_5",],"outcome": "january_2"},
+		"choice3": { "choice": "I kinda regret this.","response": [
+			"Male Support$$You can go home and study if you want.||gpa_2",],"outcome": "january_2"},
 	},
 	"january_2||v1": {
 		"content": [
-			"Male_Bully_Happy$$Studying again? You’re so boring. Let’s skip and play some games.",],
+			"Male Bully$$Studying again? You’re so boring. Let’s skip and play some games.",],
 		"choice1": { "choice": "No thanks. I’m focused.","response": [
-			"Tch, whatever. Nerd.||gpa_5",],"outcome": "january_3"},
+			"Male Bully$$Tch, whatever. Nerd.||gpa_5",],"outcome": "january_3"},
 		"choice2": { "choice": "One round won’t hurt… right?","response": [
-			"Haha! See? You’re not that boring.||gpa_-2||sociallife_2",],"outcome": "january_3"},
+			"Male Bully$$Haha! See? You’re not that boring.||gpa_-2||sociallife_2",],"outcome": "january_3"},
 		"choice3": { "choice": "Sure, games sound better than stress.","response": [
-			"That’s more like it! Time to chill.|gpa_-5||depression_-2",],"outcome": "january_3"},
+			"Male Bully$$That’s more like it! Time to chill.|gpa_-5||depression_-2",],"outcome": "january_3"},
 	},
 	"january_3||v1": {
 		"content": [
-			"Female_Support_Happy$$Final review tonight at the gym—group study style. You in?",],
+			"Female Support$$Final review tonight at the gym—group study style. You in?",],
 		"choice1": { "choice": "Absolutely. Let’s ace this!","response": [
-			"Perfect! You’ll learn a lot with us.||gpa_5||sociallife_2",],"outcome": "february_1"},
+			"Female Support$$Perfect! You’ll learn a lot with us.||gpa_5||sociallife_2",],"outcome": "february_1"},
 		"choice2": { "choice": "I’ll try, if I finish this part.","response": [
-			"Okay, just drop by if you can.||gpa_2",],"outcome": "february_1"},
+			"Female Support$$Okay, just drop by if you can.||gpa_2",],"outcome": "february_1"},
 		"choice3": { "choice": "I’ll pass. Studying alone works for me.","response": [
-			"Alright, but don’t over-isolate.||gpa_2||sociallife_-2",],"outcome": "february_1"},
+			"Female Support$$Alright, but don’t over-isolate.||gpa_2||sociallife_-2",],"outcome": "february_1"},
 	},
 	"february_1||v1": {
-		"content": [],
+		"content": [
+			"Female Support$$We need to finish our group project. Want to meet up later to work on it?",],
+		"choice1": { "choice": "Of course! Let’s finish it early.","response": [
+			"Female Support$$Awesome! Let’s finish strong together.||gpa_5||sociallife_3",],"outcome": "february_2"},
+		"choice2": { "choice": "Can we do it tomorrow instead?","response": [
+			"Female Support$$Okay, but don’t delay too long.||gpa_2||sociallife_-2",],"outcome": "february_2"},
+		"choice3": { "choice": "Just send me what to do—I’ll handle it solo.","response": [
+			"Female Support$$Alright… but group work means teamwork.||gpa_2||sociallife_-3",],"outcome": "february_2"},
 	},
 	"february_2||v1": {
-		"content": [],
+		"content": [
+			"Male Bully$$You still trying hard? Why don’t you just give up already?",],
+		"choice1": { "choice": "Stop bothering me. I’ve had enough.","response": [
+			"Male Bully$$Tch. Fine. Whatever.||depression_-5",],"outcome": "february_3"},
+		"choice2": { "choice": "I’m ignoring you from now on.","response": [
+			"Male Bully$$Pfft. You’re boring anyway.||depression_-2",],"outcome": "february_3"},
+		"choice3": { "choice": "Why are you like this?","response": [
+			"Male Bully$$...Maybe I’m just angry. Doesn’t matter.||depression_-2",],"outcome": "february_3"},
+	},
+	"february_3||v1": {
+		"content": [
+			"Male Support$$We reported the bully to OSAS. They want to hear your side. Will you come?",],
+		"choice1": { "choice": "Yes. This needs to stop.","response": [
+			"Male Support$$We’re proud of you. That took courage.||depression_-5||sociallife_5",],"outcome": "end_game"},
+		"choice2": { "choice": "Maybe… I’m still unsure.","response": [
+			"Male Support$$That’s okay. We’ll support you no matter what.||depression_2",],"outcome": "end_game"},
+		"choice3": { "choice": "No. I don’t want to get involved.","response": [
+			"Male Support$$You don’t deserve this. But we respect your choice.||depression_5||sociallife_-5||sociallife_2",],"outcome": "end_game"},
 	},
 
 

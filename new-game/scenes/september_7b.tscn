@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbevtk60a42ly"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_70mru"]
+[ext_resource type="Texture2D" uid="uid://lq2f3knr6q87" path="res://assets/background/hallway_1.png" id="2_5f7g5"]
+
+[node name="september_7b" instance=ExtResource("1_70mru")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_5f7g5")

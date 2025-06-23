@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://br13wtrf6q5md"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_20olq"]
+[ext_resource type="Texture2D" uid="uid://b23wf04f6q758" path="res://assets/background/party_place.png" id="2_20olq"]
+[ext_resource type="PackedScene" uid="uid://c247vsci3a24a" path="res://spirtes/male-support.tscn" id="3_aq2vd"]
+
+[node name="january_1" instance=ExtResource("1_20olq")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_20olq")
+
+[node name="male-support" parent="sprite_parent" index="0" instance=ExtResource("3_aq2vd")]
+position = Vector2(615, 445)
+
+[node name="AnimatedSprite2D" parent="sprite_parent/male-support" index="0"]
+animation = &"normal"
+
+[editable path="sprite_parent/male-support"]

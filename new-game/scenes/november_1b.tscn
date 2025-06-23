@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://blhqpe8xheoby"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_oul35"]
+[ext_resource type="Texture2D" uid="uid://b23wf04f6q758" path="res://assets/background/party_place.png" id="2_qy6ob"]
+[ext_resource type="PackedScene" uid="uid://dbsxra7wrcsoh" path="res://spirtes/female-support.tscn" id="3_bx6uf"]
+[ext_resource type="PackedScene" uid="uid://c247vsci3a24a" path="res://spirtes/male-support.tscn" id="4_bqppd"]
+
+[node name="november_1b" instance=ExtResource("1_oul35")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_qy6ob")
+
+[node name="female-support" parent="sprite_parent" index="0" instance=ExtResource("3_bx6uf")]
+position = Vector2(318, 546)
+
+[node name="AnimatedSprite2D" parent="sprite_parent/female-support" index="0"]
+animation = &"party"
+autoplay = "party"
+frame_progress = 0.627302
+
+[node name="male-support" parent="sprite_parent" index="1" instance=ExtResource("4_bqppd")]
+position = Vector2(896, 544)
+
+[node name="AnimatedSprite2D" parent="sprite_parent/male-support" index="0"]
+autoplay = "party"
+frame_progress = 0.426664
+
+[editable path="sprite_parent/female-support"]
+[editable path="sprite_parent/male-support"]

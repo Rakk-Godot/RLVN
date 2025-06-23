@@ -1,5 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://vek1328ctvn1"]
+[gd_scene load_steps=4 format=3 uid="uid://vek1328ctvn1"]
 
 [ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_ajqwc"]
+[ext_resource type="Texture2D" uid="uid://bnbl8fgidjrf6" path="res://assets/background/club_house.png" id="2_7c56i"]
+[ext_resource type="PackedScene" uid="uid://c247vsci3a24a" path="res://spirtes/male-support.tscn" id="3_wjn4n"]
 
 [node name="january_1" instance=ExtResource("1_ajqwc")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_7c56i")
+
+[node name="male-support" parent="sprite_parent" index="0" instance=ExtResource("3_wjn4n")]
+position = Vector2(615, 445)
+
+[node name="AnimatedSprite2D" parent="sprite_parent/male-support" index="0"]
+animation = &"normal"
+
+[editable path="sprite_parent/male-support"]

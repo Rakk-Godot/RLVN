@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://yah8elogglh1"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_6k2l1"]
+[ext_resource type="Texture2D" uid="uid://cdkcvqoql2w62" path="res://assets/background/club_house2.png" id="2_gmvxi"]
+[ext_resource type="PackedScene" uid="uid://c247vsci3a24a" path="res://spirtes/male-support.tscn" id="3_hadgb"]
+
+[node name="february_3" instance=ExtResource("1_6k2l1")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_gmvxi")
+
+[node name="male-support" parent="sprite_parent" index="0" instance=ExtResource("3_hadgb")]
+position = Vector2(599, 519)
+
+[node name="AnimatedSprite2D" parent="sprite_parent/male-support" index="0"]
+animation = &"normal"
+frame_progress = 0.494991
+
+[editable path="sprite_parent/male-support"]

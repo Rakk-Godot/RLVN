@@ -25,18 +25,22 @@ func initialize_game():
 	Globals.change_scene("res://game/Main.tscn")
 	
 func _on_new_game():
+	Agent.play_click()
 	if Save.exists() == true:
 		ab.show_action("newgame", 'Starting a new game will delete your current save file. \nAre you sure you want to start a new game?')
 	else:
 		newgame()
 	
 func _on_load_game():
+	Agent.play_click()
 	loadgame()
 	
 func _on_settings():
+	Agent.play_click()
 	settings.show_settings()
 	
 func _on_quit():
+	Agent.play_click()
 	get_tree().quit()
 	
 func _action_done(_code:String,_action:bool):

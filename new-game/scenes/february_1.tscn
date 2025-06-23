@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3r4cryj65wqh"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_4k5q0"]
+[ext_resource type="Texture2D" uid="uid://fnaajd74hjam" path="res://assets/background/comlab_entrance.png" id="2_4k5q0"]
+[ext_resource type="PackedScene" uid="uid://dbsxra7wrcsoh" path="res://spirtes/female-support.tscn" id="3_8pcn5"]
+
+[node name="february_1" instance=ExtResource("1_4k5q0")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_4k5q0")
+
+[node name="female-support" parent="sprite_parent" index="0" instance=ExtResource("3_8pcn5")]
+position = Vector2(662, 488)
+
+[node name="AnimatedSprite2D" parent="sprite_parent/female-support" index="0"]
+frame_progress = 0.635113
+
+[editable path="sprite_parent/female-support"]

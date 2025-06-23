@@ -91,6 +91,7 @@ func hide_dialogue():
 
 func _on_choice(button):
 	if current_tween == null:
+		Agent.play_click()
 		if custom_choices.is_empty():
 			choices_visible(false)
 			choice_outcome = button.outcome

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbinvjkbqj3tb"]
+
+[ext_resource type="PackedScene" uid="uid://bibhl7em3ho15" path="res://scenes/base_scene.tscn" id="1_l747s"]
+[ext_resource type="Texture2D" uid="uid://fnaajd74hjam" path="res://assets/background/comlab_entrance.png" id="2_qwplq"]
+[ext_resource type="PackedScene" uid="uid://cgewm45ths0c0" path="res://spirtes/male-bully.tscn" id="3_l747s"]
+
+[node name="february_2" instance=ExtResource("1_l747s")]
+
+[node name="illustration" parent="." index="0"]
+texture = ExtResource("2_qwplq")
+
+[node name="male-bully" parent="sprite_parent" index="0" instance=ExtResource("3_l747s")]
+position = Vector2(641, 506)
+
+[node name="AnimatedSprite2D" parent="sprite_parent/male-bully" index="0"]
+autoplay = "angry"
+frame_progress = 0.502742
+
+[editable path="sprite_parent/male-bully"]
