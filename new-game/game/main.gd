@@ -18,12 +18,24 @@ func _ready() -> void:
 	depression.value = Agent.depression
 	sociallife.value = Agent.sociallife
 	dialogue_scene()
-
+	
 func stats_changed(_string: String,_choice):
 	$HUD.stats_changed(_string,_choice)
-
-
+	
 func _on_dialogue_ui_finished(_outcome) -> void:
+	if _outcome == "end_game":
+		Globals.reset_stats()
+		Agent.learn_count += 1
+		outcome = "september_1"
+		dialogue_ui.active_key = outcome
+		$Transitioner/overlay/end_text.text = "End of Loop " + str(Agent.learn_count)
+		$Transitioner/transition_anim.play("end_scene")
+		gpa.value = Agent.gpa
+		depression.value = Agent.depression
+		sociallife.value = Agent.sociallife
+		dialogue_ui.transitioning = true
+		return
+
 	if dialogue_ui.reader.is_end("main", _outcome) == true:
 		Globals.change_scene(Globals.path_menu)
 	else:
@@ -31,7 +43,6 @@ func _on_dialogue_ui_finished(_outcome) -> void:
 		dialogue_ui.active_key = outcome
 		$Transitioner/transition_anim.play("change_scene")
 		dialogue_ui.transitioning = true
-		
 
 func change_dialogue() -> void:
 	dialogue_ui.init_next(outcome)
@@ -41,26 +52,24 @@ func change_dialogue() -> void:
 	Agent.gpa = gpa.value
 	Agent.depression = depression.value
 	Save.update_save()
-
+	
 func reset_dialogue() -> void:
 	dialogue_ui.change_dial_scene()
-
-
+	
 func dialogue_scene():
 	var path = "res://scenes/" + dialogue_ui.active_key + ".tscn"
 	scene_change(path)
 	
-
 func scene_change(path):
 	for each in BG.get_children():
 		each.queue_free()
 	var __bg = load(path).instantiate()
 	active_scene = __bg
 	BG.add_child(__bg)
-
+	
 func _on_main_menu_pressed() -> void:
 	Globals.change_scene(Globals.path_menu)
-
+	
 func _on_dialogue_ui_change_anim(_node : String,_anim: String) -> void:
 	if is_instance_valid(active_scene):
 		active_scene.change_anim(_node,_anim)

@@ -53,6 +53,9 @@ func reset_data():
 	current_arc = "main"
 	Agent.agent_data = {}
 	Agent.learn_count = 0
+	reset_stats()
+
+func reset_stats() -> void:
 	Agent.gpa =  30.0
 	Agent.sociallife = 30.0
 	Agent.depression = 50.0

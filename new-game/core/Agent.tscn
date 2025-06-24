@@ -16,7 +16,7 @@ bus = &"SFX"
 layer = 2
 
 [node name="agent_container" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 1124.0
+offset_left = 1051.0
 offset_top = 139.0
 offset_right = 1274.0
 offset_bottom = 661.0

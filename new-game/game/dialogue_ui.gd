@@ -34,15 +34,45 @@ var disabled_keyboard = false
 var transitioning : bool = false
 
 var last_choice : String
+var current_button = null
+
+
+func _process(delta: float) -> void:
+	$agent_helper.visible = Agent.learn_count > 0
+	if Agent.learn_count == 0:
+		$agent_helper.hide()
 
 
 func _ready() -> void:
+	clear_helper()
 	for choice in $UI/Choices.get_children():
 		choice.connect("pressed", Callable(self, "_on_choice").bind(choice))
 	choices_visible(false)
 	$UI/BaseClick.connect("pressed", Callable(self, "_on_next_click"))
 	content_node.visible_characters = 0
 	hide()
+
+
+
+func clear_helper() -> void:
+	$UI/helper.hide()
+	$UI/helper/proceed.disabled = true
+	$UI/helper/helper_text.text = ""
+	$UI/helper/helper_text.visible_ratio = 0
+	
+func show_helper(_text) -> void:
+	$UI/helper.show()
+	$UI/helper/helper_text.text = _text
+	$UI/helper/anim.play("show_text")
+
+func _on_anim_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "show_text":
+		$UI/helper/proceed.disabled = false
+
+func _on_proceed_pressed() -> void:
+	action_button(current_button)
+	clear_helper()
+
 
 func initialize(_story):
 	story = _story
@@ -90,8 +120,21 @@ func hide_dialogue():
 	hide()
 
 func _on_choice(button):
+	Agent.play_click()
+	clear_helper()
+	if Agent.learn_count > 0 and $agent_helper.button_pressed == true:
+		var _text = Agent.get_action(button.choice_text)
+		if _text != "":
+			show_helper(_text)
+			current_button = button
+		else:
+			action_button(button)
+	else:
+		action_button(button)
+
+func action_button(button):
+	current_button = null
 	if current_tween == null:
-		Agent.play_click()
 		if custom_choices.is_empty():
 			choices_visible(false)
 			choice_outcome = button.outcome
@@ -106,6 +149,10 @@ func _on_choice(button):
 		else:
 			active = false
 			emit_signal("finished", button.outcome)
+
+
+
+
 
 func choice_next():
 	if auto == true:
