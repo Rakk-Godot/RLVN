@@ -82,6 +82,21 @@ corner_radius_bottom_left = 20
 expand_margin_left = 30.0
 expand_margin_right = 30.0
 
+[sub_resource type="Animation" id="Animation_b5xiq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("helper_text:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_m6137"]
 resource_name = "show_text"
 length = 0.5
@@ -96,21 +111,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
-}
-
-[sub_resource type="Animation" id="Animation_b5xiq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("helper_text:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wg4ne"]
@@ -213,6 +213,7 @@ visible_ratio = 0.0
 
 [node name="proceed" type="Button" parent="UI/helper"]
 custom_minimum_size = Vector2(0, 60)
+layout_mode = 0
 offset_left = 61.0
 offset_top = 138.0
 offset_right = 147.0

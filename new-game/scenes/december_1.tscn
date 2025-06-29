@@ -13,7 +13,6 @@ texture = ExtResource("2_jlunv")
 position = Vector2(623, 613)
 
 [node name="AnimatedSprite2D" parent="sprite_parent/female-support" index="0"]
-autoplay = "party"
-frame_progress = 0.134483
+frame_progress = 0.485696
 
 [editable path="sprite_parent/female-support"]

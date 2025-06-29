@@ -134,7 +134,7 @@ var story = {
 		"choice1": { "choice": "I’ll pass. I need to study.","response": [
 			"Female Support$$You’re so responsible! But don’t burn out.%%female-support_happy||gpa_10||depression_2",],"outcome": "november_3"},
 		"choice2": { "choice": "Maybe, if I finish early.","response": [
-			"Fair enough! Hope you balance it well.%%female-support_normal||gpa_5||sociallife_2Female Support$$",],"outcome": "november_3"},
+			"Female Support$$Fair enough! Hope you balance it well.%%female-support_normal||gpa_5||sociallife_2",],"outcome": "november_3"},
 		"choice3": { "choice": "Heck yes! I need a break.","response": [
 			"Female Support$$Woo! Let’s have fun before the stress kicks in!%%female-support_sad||gpa_-5||sociallife_5",],"outcome": "november_1b"},
 	},
@@ -276,7 +276,6 @@ var story = {
 		"choice3": { "choice": "No. I don’t want to get involved.","response": [
 			"Male Support$$You don’t deserve this. But we respect your choice.||depression_5||sociallife_-5||sociallife_2",],"outcome": "end_game"},
 	},
-
 
 # end
 }

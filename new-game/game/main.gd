@@ -24,17 +24,23 @@ func stats_changed(_string: String,_choice):
 	
 func _on_dialogue_ui_finished(_outcome) -> void:
 	if _outcome == "end_game":
-		Globals.reset_stats()
 		Agent.learn_count += 1
 		outcome = "september_1"
 		dialogue_ui.active_key = outcome
-		$Transitioner/overlay/end_text.text = "End of Loop " + str(Agent.learn_count)
+		
+
+		$Transitioner/overlay/end_text.text = Agent.game_ended()# :"End of Loop " + str(Agent.learn_count)
 		$Transitioner/transition_anim.play("end_scene")
 		gpa.value = Agent.gpa
 		depression.value = Agent.depression
 		sociallife.value = Agent.sociallife
 		dialogue_ui.transitioning = true
 		return
+
+
+
+
+
 
 	if dialogue_ui.reader.is_end("main", _outcome) == true:
 		Globals.change_scene(Globals.path_menu)
@@ -43,6 +49,11 @@ func _on_dialogue_ui_finished(_outcome) -> void:
 		dialogue_ui.active_key = outcome
 		$Transitioner/transition_anim.play("change_scene")
 		dialogue_ui.transitioning = true
+
+
+func pause_game():
+	get_tree().paused = true
+
 
 func change_dialogue() -> void:
 	dialogue_ui.init_next(outcome)
@@ -73,3 +84,8 @@ func _on_main_menu_pressed() -> void:
 func _on_dialogue_ui_change_anim(_node : String,_anim: String) -> void:
 	if is_instance_valid(active_scene):
 		active_scene.change_anim(_node,_anim)
+
+
+func _on_continue_pressed() -> void:
+	$Transitioner/overlay/continue.hide()
+	get_tree().paused = false

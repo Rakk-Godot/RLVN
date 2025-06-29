@@ -57,8 +57,8 @@ func reset_data():
 
 func reset_stats() -> void:
 	Agent.gpa =  30.0
-	Agent.sociallife = 30.0
-	Agent.depression = 50.0
+	Agent.sociallife = 20.0
+	Agent.depression = 20.0
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("screenshot"):

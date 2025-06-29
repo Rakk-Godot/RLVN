@@ -519,6 +519,7 @@ offset_bottom = 245.0
 texture = ExtResource("106_kry1r")
 
 [node name="VersionLabel" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 468.0
 offset_top = 676.0
 offset_right = 1268.0

@@ -52,8 +52,6 @@ func _ready() -> void:
 	content_node.visible_characters = 0
 	hide()
 
-
-
 func clear_helper() -> void:
 	$UI/helper.hide()
 	$UI/helper/proceed.disabled = true

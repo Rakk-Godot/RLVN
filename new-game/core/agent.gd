@@ -21,6 +21,7 @@ func learn_game(_choice,_result,_value):
 		"depression" : _title = "Depression"
 	if _value < 0:
 		_dir = "Decrease"
+	
 	if not agent_data.has(learn_count):
 		agent_data[learn_count] = {}
 	if not agent_data[learn_count].has(_scene):
@@ -56,9 +57,7 @@ func get_action(_choice):
 			if agent_data[each][Globals.current_scene].has(_choice):
 				for _key in agent_data[each][Globals.current_scene][_choice]:
 					action_detected[_key] = agent_data[each][Globals.current_scene][_choice][_key]
-
 	var _good = true
-
 	var dialouge_list = {
 		"sociallife" : {
 			true : ["This choice has increased my Social Life stat","My Social Life meter will go up","Choosing to join in really improved my social life"],
@@ -82,11 +81,40 @@ func get_action(_choice):
 			final_text += _and
 		final_text += dialouge_list[each][action_detected[each]][randi() % 3]
 		idx += 1
-	print(action_detected,final_text)
 	if final_text != "":
 		final_text += "."
-	
 	return final_text
+
+func game_ended() -> String:
+	var end_text : String
+	var dead = false
+	if gpa >= 70:
+		end_text += "You Graduated from College!"
+	elif gpa > 90:
+		end_text += "You Graduated from College with Honor!"
+	
+	if depression > 70 and gpa >= 70:
+		dead = true
+		end_text += "\nBut after Several Months, you commit suicide due to depression"
+	elif  depression > 70 and gpa < 70:
+		dead = true
+		end_text += "\nAnd you commit suicide due to depression"
+
+	if dead == true:
+		if sociallife > 80:
+			end_text += "\n\nYou make a lot of friends, they come to your funeral!"
+		else:
+			end_text += "\n\nNone of your school mate go to your funeral,\nbecause you failed your social life"
+	else:
+		end_text += "\n\nYou did't supper any depression!"
+		
+		if sociallife > 80:
+			end_text += "\n\nYou live a happy life because you got a lot of friends!"
+		elif sociallife > 60:
+			end_text += "\n\nYou have few friend but your still happy with them!"
+	print("sociallife: " ,sociallife, "gpa: ", gpa, "depression: ", depression )
+	Globals.reset_stats()
+	return end_text
 
 func play_click() -> void:
 	if not $click.playing:
