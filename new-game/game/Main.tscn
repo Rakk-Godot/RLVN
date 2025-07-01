@@ -403,6 +403,7 @@ autowrap_mode = 2
 process_mode = 3
 visible = false
 custom_minimum_size = Vector2(0, 60)
+layout_mode = 0
 offset_left = 510.0
 offset_top = 581.0
 offset_right = 741.0
